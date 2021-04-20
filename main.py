@@ -1,5 +1,6 @@
 from monoalphabetic import Monoalphabetic
 from polyalphabetic import Polyalphabetic
+from playfair import Playfair
 import os
 
 def cls():
@@ -12,6 +13,8 @@ def main():
         print("=====Encryption=====")
         print("1. Monoalphabetic Cipher")
         print("2. Polyalphabetic Cipher")
+        print("3. Playfair Cipher")
+        print("0. EXIT")
         choose = str(input("pilihan --> "))
         if choose == "1":
             plaintext = str(input("plaintext\t: "))
@@ -30,8 +33,22 @@ def main():
             print("ciphertext\t:",poly.encode())
             print("Original text\t:",poly.decode())
             enter = input("press ENTER to continue ... ")  
-            poly.reset()          
+            poly.reset()   
+        elif choose == "3":
+            plaintext = str(input("plaintext\t: "))
+            key = str(input("kata kunci\t: "))
+            play.setPlaintext(plaintext)
+            play.setKey(key)
+            print("kata kunci : ")
+            play.printKey()
+            print("plaintext\t:",play.printPlaintext())
+            print("ciphertext\t:",play.encode())
+            enter = input("press ENTER to continue ... ")  
+            play.reset()   
+        elif choose == "0":
+            keepRun = False       
 if __name__ == "__main__":
     mono = Monoalphabetic()
     poly = Polyalphabetic()
+    play = Playfair()
     main()

@@ -26,7 +26,7 @@ class Polyalphabetic(object):
                     keyIndex+=1
 
     def encode(self):
-        ptIndex = []
+        ptIndex = [] # 18 19 
         for x in range(len(self.plaintext)):
             for y in range(len(self.plaintext[x])):
                 ptIndex.append(self.alphabet.index(self.plaintext[x][y]))
